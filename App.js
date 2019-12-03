@@ -9,23 +9,27 @@ export default class App extends React.Component {
     loaded: false
   };
 
-  handleError = error => console.log(error);
+  handleError = error => {
+    console.log(error);
+  };
 
-  handleLoaded = () => this.setState({ loaded: true });
+  handleLoaded = () => {
+    this.setState({ loaded: true });
+  };
 
   loadAssets = async () => {
     await Font.loadAsync({
       ...Ionicons.font
     });
   };
+
   render() {
     const { loaded } = this.state;
 
     if (loaded) {
       return (
         <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
-          <Ionicons name="ios-airplane" size={320} color="blue" />
+          <Text>open~</Text>
         </View>
       );
     } else {
