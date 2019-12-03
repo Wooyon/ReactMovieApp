@@ -2,16 +2,19 @@ import React from "react";
 import { Platform } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createBottomTabNavigator } from "react-navigation-tabs";
+import { createStackNavigator } from "react-navigation-stack";
 import MoviesScreen from "../screens/Movies";
 import TVScreen from "../screens/TV";
 import SearchScreen from "../screens/Search";
 import { BG_COLOR } from "../constants/Colors";
 import TabBarIcon from "../components/TabBarIcon";
+import { createStack, headerStyles } from "./config";
 
 const TabNavigation = createBottomTabNavigator(
   {
     Movies: {
-      screen: MoviesScreen,
+      screen: createStack(MoviesScreen, "Movies"),
+      //Movies의 screen은 Movie의 stackNavigator이다.
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
@@ -22,7 +25,7 @@ const TabNavigation = createBottomTabNavigator(
       }
     },
     TV: {
-      screen: TVScreen,
+      screen: createStack(TVScreen, "TV"),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
@@ -33,7 +36,7 @@ const TabNavigation = createBottomTabNavigator(
       }
     },
     Search: {
-      screen: SearchScreen,
+      screen: createStack(SearchScreen, "Search"),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon

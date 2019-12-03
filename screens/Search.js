@@ -1,4 +1,11 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
 
-export default () => <Text>Search</Text>;
+export default ({ navigation }) => (
+  <View style={{ margin: 30 }}>
+    <Text>Search</Text>
+    <TouchableOpacity onPress={() => navigation.navigate("Detail")}>
+      <Text>Go to detail</Text>
+    </TouchableOpacity>
+  </View>
+);
